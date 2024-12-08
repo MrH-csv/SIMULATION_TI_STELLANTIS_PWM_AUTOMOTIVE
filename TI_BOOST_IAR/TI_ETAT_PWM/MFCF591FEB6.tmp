@@ -1,0 +1,104 @@
+
+/*******************************************************************************
+**                                 Author(s)                                  **
+********************************************************************************
+** Initials     Name     AHNM                   19/11/2024                    **
+** ---------------------------------------------------------------------------**
+** DM           Angel Habid Navarro                                           **
+*******************************************************************************/
+
+/*******************************************************************************
+**                            Dependencies and Includes                       **
+*******************************************************************************/
+#include "tle_device.h"
+
+/*******************************************************************************
+**                             Macros                                         **
+*******************************************************************************/
+#define ETAT_port_P0_1 0x02 
+#define GPIO_P0_1_AS_MEDIUM_DRIVER 0X44
+#define GPIO_P0_OPEN_DRAIN_disable 0X00
+#define GPIO_PULL_UP_PIN_P0_1_SELCTED 0x02
+#define P0_1_PULL_UP_ENABLE 0x02
+#define ETAT_HIGH  PORT->P0_DATA.reg=0x02
+#define ETAT_LOW PORT->P0_DATA.reg=0x00
+#define ETAT_Freq 100 /** Frequency = 10hz = 100ms because the systick is set to 1 ms */
+
+
+/*******************************************************************************
+**                             Function prototypes.                           **
+*******************************************************************************/
+extern void Systick_IRQ_subroutine(void);
+void GPIO_INT(void);
+void ETAT_PWM(void);
+void Tog_ETAT(void);
+
+/*******************************************************************************
+**                             Global Variables   .                           **
+*******************************************************************************/
+volatile unsigned int ETAT_PWM_Status;
+volatile unsigned int Global_counter_V;
+
+/*******************************************************************************
+**                             main          CMSIS_Irq_Dis();                                 **
+*******************************************************************************/
+
+int main(void)
+{
+  ETAT_PWM_Status = 0;/** Initial status of the output */
+  Global_counter_V = 0;
+  TLE_Init();/**Start the MCU modules */ 
+  GPIO_INT();/**Initialization and configuration of GPIOS */
+ 
+  for (;;)
+  {  
+    (void)WDT1_Service();/** Main watchdog1 (WDT1) service */
+  }
+}
+
+/*******************************************************************************
+**                             Function deployment.                           **
+*******************************************************************************/
+extern void Systick_IRQ_subroutine(void)
+{  
+  ETAT_PWM();
+}
+
+void GPIO_INT(void)
+{
+  /** ETAT_MJP PORT CONFIGURATION */
+  PORT->P0_DIR.reg = ETAT_port_P0_1;
+  SCU->P0_POCON0.reg = GPIO_P0_1_AS_MEDIUM_DRIVER;
+  PORT->P0_OD.reg = GPIO_P0_OPEN_DRAIN_disable;
+  PORT->P0_PUDSEL.reg = GPIO_PULL_UP_PIN_P0_1_SELCTED;
+  PORT->P0_PUDEN.reg = P0_1_PULL_UP_ENABLE;
+}
+
+void ETAT_PWM(void)
+{
+  
+   if (Global_counter_V == (ETAT_Freq/2))
+    {
+      
+      Tog_ETAT();
+      Global_counter_V = 0;/**Clear the counter flag */
+    }
+   else
+   {
+      Global_counter_V++;
+   }
+    
+}
+
+void Tog_ETAT(void)
+{
+  if(ETAT_PWM_Status == 1)
+  {
+   ETAT_HIGH;
+  }
+  if(ETAT_PWM_Status == 0)
+  {
+    ETAT_LOW;
+  } 
+  ETAT_PWM_Status = (ETAT_PWM_Status == 1)? 0 : 1;
+}

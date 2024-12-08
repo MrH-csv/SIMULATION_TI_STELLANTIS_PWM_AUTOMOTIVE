@@ -1,0 +1,410 @@
+###############################################################################
+#
+# IAR ELF Linker V8.50.1.245/W32 for ARM                  27/Nov/2024  13:20:45
+# Copyright 2007-2020 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Exe\TI_ETAT_PWM.out
+#    Map file     =
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\List\TI_ETAT_PWM.map
+#    Command line =
+#        -f C:\Users\navaan10\AppData\Local\Temp\EW6CAD.tmp
+#        (C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\bootrom.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\int.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\isr.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\lin.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\main.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\pmu.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\port.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\scu.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\startup_tle987x.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\system_tle987x.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\timer2x.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\tle_device.o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj\wdt1.o
+#        --no_out_extension -o
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Exe\TI_ETAT_PWM.out
+#        --map
+#        C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\List\TI_ETAT_PWM.map
+#        --config
+#        C:/Users/navaan10/IAR-CMSIS-Packs/Infineon/TLE987x_DFP/1.6.0/\.iar\config\linker\TLE9879QXA40.icf
+#        --semihosting --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x1100'0000 { ro section .intvec };
+"P1":  place in [from 0x1100'0000 to 0x1101'effb] |
+                [from 0x1101'effc to 0x1101'ffff] { ro };
+define block CSTACK with size = 765, alignment = 8 { };
+define block HEAP with size = 1'530, alignment = 8 { };
+"P3":  place in [from 0x1800'0000 to 0x1800'000f] |
+                [from 0x1800'0018 to 0x1800'17ff] {
+          rw, block CSTACK, block HEAP };
+
+No sections matched the following patterns:
+
+  ro section application_specific_ro  in "P2|P4"
+  rw section application_specific_rw  in "P2|P4"
+
+
+  Section          Kind         Address    Size  Object
+  -------          ----         -------    ----  ------
+"A0":                                      0x84
+  .intvec          ro code  0x1100'0000    0x82  startup_tle987x.o [1]
+                          - 0x1100'0082    0x82
+
+"P1":                                    0x1228
+  .text            ro code  0x1100'0084   0x66c  main.o [1]
+  .text            ro code  0x1100'06f0    0x20  tle_device.o [1]
+  .text            ro code  0x1100'0710    0x80  wdt1.o [1]
+  .text            ro code  0x1100'0790    0x1c  U32ToFlt.o [3]
+  .text            ro code  0x1100'07ac    0xfc  FltDiv.o [3]
+  .text            ro code  0x1100'08a8    0xd8  FltMul.o [3]
+  .text            ro code  0x1100'0980    0x80  FltSub.o [3]
+  .text            ro code  0x1100'0a00    0x2a  FltToS32.o [3]
+  .text            ro code  0x1100'0a2a    0x3a  zero_init3.o [4]
+  .text            ro code  0x1100'0a64   0x31c  scu.o [1]
+  .text            ro code  0x1100'0d80    0x98  pmu.o [1]
+  .text            ro code  0x1100'0e18     0x2  lin.o [1]
+  .text            ro code  0x1100'0e1c    0x44  timer2x.o [1]
+  .text            ro code  0x1100'0e60    0xe8  port.o [1]
+  .text            ro code  0x1100'0f48   0x100  int.o [1]
+  .text            ro code  0x1100'1048    0xd6  FltAdd.o [3]
+  .text            ro code  0x1100'1120    0x70  isr.o [1]
+  .text            ro code  0x1100'1190    0x30  system_tle987x.o [1]
+  .text            ro code  0x1100'11c0    0x28  data_init.o [4]
+  .iar.init_table  const    0x1100'11e8    0x10  - Linker created -
+  .text            ro code  0x1100'11f8    0x1e  cmain.o [4]
+  .text            ro code  0x1100'1216     0x4  low_level_init.o [2]
+  .text            ro code  0x1100'121a     0x4  exit.o [2]
+  .text            ro code  0x1100'1220     0xa  cexit.o [4]
+  .text            ro code  0x1100'122c    0x14  exit.o [5]
+  .text            ro code  0x1100'1240    0x10  startup_tle987x.o [1]
+  .text            ro code  0x1100'1250     0xc  cstartup_M.o [4]
+  .rodata          const    0x1100'125c     0x4  bootrom.o [1]
+  .text            ro code  0x1100'1260     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1264     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1268     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'126c     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1270     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1274     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1278     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'127c     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1280     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1284     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1288     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'128c     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1290     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1294     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'1298     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'129c     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'12a0     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'12a4     0x4  startup_tle987x.o [1]
+  .text            ro code  0x1100'12a8     0x4  startup_tle987x.o [1]
+  .rodata          const    0x1100'12ac     0x0  zero_init3.o [4]
+                          - 0x1100'12ac  0x1228
+
+Absolute sections:                          0x4
+  .rodata          const    0x1101'effc     0x4  system_tle987x.o [1]
+                          - 0x1101'f000     0x4
+
+"P3", part 1 of 2:                         0x6c
+  .bss             zero     0x1800'0018     0x4  main.o [1]
+  .bss             zero     0x1800'001c     0x4  main.o [1]
+  .bss             zero     0x1800'0020     0x4  main.o [1]
+  .bss             zero     0x1800'0024     0x4  main.o [1]
+  .bss             zero     0x1800'0028     0x4  main.o [1]
+  .bss             zero     0x1800'002c     0x4  main.o [1]
+  .bss             zero     0x1800'0030     0x4  main.o [1]
+  .bss             zero     0x1800'0034     0x4  main.o [1]
+  .bss             zero     0x1800'0038     0x4  main.o [1]
+  .bss             zero     0x1800'003c     0x4  main.o [1]
+  .bss             zero     0x1800'0040     0x4  main.o [1]
+  .bss             zero     0x1800'0044     0x4  main.o [1]
+  .bss             zero     0x1800'0048     0x4  main.o [1]
+  .bss             zero     0x1800'004c     0x4  main.o [1]
+  .bss             zero     0x1800'0050     0x4  main.o [1]
+  .bss             zero     0x1800'0054     0x4  main.o [1]
+  .bss             zero     0x1800'0058     0x4  main.o [1]
+  .bss             zero     0x1800'005c     0x4  main.o [1]
+  .bss             zero     0x1800'0060     0x4  main.o [1]
+  .bss             zero     0x1800'0064     0x4  main.o [1]
+  .bss             zero     0x1800'0068     0x4  main.o [1]
+  .bss             zero     0x1800'006c     0x4  main.o [1]
+  .bss             zero     0x1800'0070     0x4  main.o [1]
+  .bss             zero     0x1800'0074     0x4  wdt1.o [1]
+  .bss             zero     0x1800'0078     0x2  main.o [1]
+  .bss             zero     0x1800'007a     0x2  main.o [1]
+  .bss             zero     0x1800'007c     0x2  main.o [1]
+  .bss             zero     0x1800'007e     0x2  main.o [1]
+  .bss             zero     0x1800'0080     0x2  main.o [1]
+  .bss             zero     0x1800'0082     0x1  wdt1.o [1]
+                          - 0x1800'0083    0x6b
+
+"P3", part 2 of 2:                        0x2fd
+  CSTACK                    0x1800'0088   0x2fd  <Block>
+    CSTACK         uninit   0x1800'0088   0x2fd  <Block tail>
+                          - 0x1800'0385   0x2fd
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+  0x1100'12ac  0x1101'effb  0x1'dd50
+  0x1101'f000  0x1101'ffff    0x1000
+  0x1800'0000  0x1800'000f      0x10
+  0x1800'0084  0x1800'0087       0x4
+  0x1800'0385  0x1800'17ff    0x147b
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x6b:
+          0x1800'0018  0x6b
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data  ro data
+                                                   (abs)
+    ------             -------  -------  -------  -------
+command line/config:
+    -----------------------------------------------------
+    Total:
+
+C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj: [1]
+    bootrom.o                         4
+    int.o                  256
+    isr.o                  112
+    lin.o                    2
+    main.o               1'644               102
+    pmu.o                  152
+    port.o                 232
+    scu.o                  796
+    startup_tle987x.o      222
+    system_tle987x.o        48                          4
+    timer2x.o               68
+    tle_device.o            32
+    wdt1.o                 128                 5
+    -----------------------------------------------------
+    Total:               3'692        4      107        4
+
+dl7M_tln.a: [2]
+    exit.o                   4
+    low_level_init.o         4
+    -----------------------------------------------------
+    Total:                   8
+
+m7M_tl.a: [3]
+    FltAdd.o               214
+    FltDiv.o               252
+    FltMul.o               216
+    FltSub.o               128
+    FltToS32.o              42
+    U32ToFlt.o              28
+    -----------------------------------------------------
+    Total:                 880
+
+rt7M_tl.a: [4]
+    cexit.o                 10
+    cmain.o                 30
+    cstartup_M.o            12
+    data_init.o             40
+    zero_init3.o            58
+    -----------------------------------------------------
+    Total:                 150
+
+shb_l.a: [5]
+    exit.o                  20
+    -----------------------------------------------------
+    Total:                  20
+
+    Gaps                     8
+    Linker created                   16      765
+---------------------------------------------------------
+    Grand Total:         4'758       20      872        4
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base   0x1100'11e8          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x1100'11f8          --   Gb  - Linker created -
+?main                   0x1100'11f9         Code  Gb  cmain.o [4]
+BusFault_Handler        0x1100'1181    0x2  Code  Gb  isr.o [1]
+CDE_Meas_DutyC          0x1800'0028    0x4  Data  Gb  main.o [1]
+CDE_Meas_Freq           0x1800'0034    0x4  Data  Gb  main.o [1]
+CDE_PWM_Measurement     0x1100'0429   0x96  Code  Gb  main.o [1]
+CMSIS_Irq_Dis           0x1100'0a9d    0x4  Code  Lc  scu.o [1]
+CMSIS_Irq_En            0x1100'0aa1    0x4  Code  Lc  scu.o [1]
+CMSIS_NOP               0x1100'0aa5    0x4  Code  Lc  scu.o [1]
+CSTACK$$Base            0x1800'0088          --   Gb  - Linker created -
+CSTACK$$Limit           0x1800'0385          --   Gb  - Linker created -
+DC_ETAT_Out             0x1800'0048    0x4  Data  Gb  main.o [1]
+DiagMatrix              0x1100'04bf  0x170  Code  Gb  main.o [1]
+DutyC_percen            0x1800'0030    0x4  Data  Gb  main.o [1]
+DutyCycle_captured      0x1800'007e    0x2  Data  Lc  main.o [1]
+ETAT_Duty_C             0x1800'0040    0x4  Data  Gb  main.o [1]
+ETAT_PWM                0x1100'03b3   0x4c  Code  Gb  main.o [1]
+ETAT_PWM_Status         0x1800'0018    0x4  Data  Gb  main.o [1]
+Fail_Confirmation_Timer_1
+                        0x1800'004c    0x4  Data  Gb  main.o [1]
+Fail_Confirmation_Timer_2
+                        0x1800'0054    0x4  Data  Gb  main.o [1]
+Fail_Confirmation_Timer_3
+                        0x1800'005c    0x4  Data  Gb  main.o [1]
+Fail_Confirmation_Timer_4
+                        0x1800'0064    0x4  Data  Gb  main.o [1]
+Fail_Confirmation_Timer_5
+                        0x1800'006c    0x4  Data  Gb  main.o [1]
+Failure_Report_Timer    0x1800'0044    0x4  Data  Gb  main.o [1]
+Field_Mod8              0x1100'0091   0x16  Code  Lc  main.o [1]
+Field_Mod8              0x1100'0a69   0x16  Code  Lc  scu.o [1]
+Field_Wrt8              0x1100'112b    0xc  Code  Lc  isr.o [1]
+Field_Wrt8              0x1100'0085    0xc  Code  Lc  main.o [1]
+Field_Wrt8all           0x1100'0a65    0x4  Code  Lc  scu.o [1]
+Freq_hz                 0x1800'0038    0x4  Data  Gb  main.o [1]
+GPIO_INT                0x1100'035f   0x54  Code  Gb  main.o [1]
+Global_counter_V        0x1800'001c    0x4  Data  Gb  main.o [1]
+HardFault_Handler       0x1100'117d    0x2  Code  Gb  isr.o [1]
+INT_Init                0x1100'0f49  0x100  Code  Gb  int.o [1]
+LIN_Init                0x1100'0e19    0x2  Code  Gb  lin.o [1]
+MemManage_Handler       0x1100'117f    0x2  Code  Gb  isr.o [1]
+Output_PWM              0x1800'003c    0x4  Data  Gb  main.o [1]
+PLL_resetPllLockDetection
+                        0x1100'0b9f   0x10  Code  Lc  scu.o [1]
+PLL_setK1divToOne       0x1100'0b05   0x2e  Code  Lc  scu.o [1]
+PLL_setNdivFromConfigWizard
+                        0x1100'0b6b   0x1e  Code  Lc  scu.o [1]
+PLL_setNormalMode       0x1100'0bd1   0x10  Code  Lc  scu.o [1]
+PLL_setOscTrim          0x1100'0b33   0x38  Code  Lc  scu.o [1]
+PLL_setPrescalerMode    0x1100'0bc1   0x10  Code  Lc  scu.o [1]
+PLL_setVcoselK2divFromConfigWizard
+                        0x1100'0b89   0x16  Code  Lc  scu.o [1]
+PLL_setfSYStoLPCLK      0x1100'0aa9   0x2e  Code  Lc  scu.o [1]
+PLL_setfSYStofPLL       0x1100'0ad7   0x2e  Code  Lc  scu.o [1]
+PLL_waitForPllLock      0x1100'0baf   0x12  Code  Lc  scu.o [1]
+PMU_Init                0x1100'0d81   0x5c  Code  Gb  pmu.o [1]
+PORT_Init               0x1100'0e61   0x8c  Code  Gb  port.o [1]
+PWM_control_var         0x1800'0020    0x4  Data  Gb  main.o [1]
+Period_captured         0x1800'007c    0x2  Data  Lc  main.o [1]
+Period_ticks            0x1800'0024    0x4  Data  Gb  main.o [1]
+Region$$Table$$Base     0x1100'11e8          --   Gb  - Linker created -
+Region$$Table$$Limit    0x1100'11f8          --   Gb  - Linker created -
+SCU_ClkInit             0x1100'0c2f   0xb4  Code  Gb  scu.o [1]
+SCU_ClosePASSWD         0x1100'0a8f    0xe  Code  Lc  scu.o [1]
+SCU_Init                0x1100'0ce3   0x44  Code  Gb  scu.o [1]
+SCU_toggleAPCLK_SET     0x1100'0be1   0x4e  Code  Lc  scu.o [1]
+SysTick_Handler         0x1100'1185    0xc  Code  Gb  isr.o [1]
+SysTick_Init            0x1100'0725   0x2a  Code  Gb  wdt1.o [1]
+SystemInit              0x1100'1191   0x30  Code  Gb  system_tle987x.o [1]
+Systick_IRQ_subroutine  0x1100'0299   0x6c  Code  Gb  main.o [1]
+TIMER21_Init            0x1100'0e43    0x2  Code  Gb  timer2x.o [1]
+TIMER2_Clear_Count      0x1100'015b   0x20  Code  Lc  main.o [1]
+TIMER2_Clk_Prescaler_En
+                        0x1100'00b5   0x12  Code  Lc  main.o [1]
+TIMER2_Clk_Prescaler_Sel
+                        0x1100'00c7   0x14  Code  Lc  main.o [1]
+TIMER2_ExtStart         0x1100'0123   0x12  Code  Lc  main.o [1]
+TIMER2_ExtStart_FallingEdge_Set
+                        0x1100'00ed   0x12  Code  Lc  main.o [1]
+TIMER2_ExternalCtrl_En  0x1100'00db   0x12  Code  Lc  main.o [1]
+TIMER2_External_Int_Clr
+                        0x1100'1137   0x10  Code  Lc  isr.o [1]
+TIMER2_Get_Capture      0x1100'0135   0x26  Code  Lc  main.o [1]
+TIMER2_Init             0x1100'0e1d   0x26  Code  Gb  timer2x.o [1]
+TIMER2_Mode_Capture_Set
+                        0x1100'00ff   0x12  Code  Lc  main.o [1]
+TIMER2_Select_T2EX      0x1100'017b   0x3c  Code  Lc  main.o [1]
+TIMER2_Stop             0x1100'0111   0x12  Code  Lc  main.o [1]
+TLE_Init                0x1100'06f1   0x20  Code  Gb  tle_device.o [1]
+Timer2_IRQ_subroutine   0x1100'0305   0x5a  Code  Gb  main.o [1]
+Tog_ETAT                0x1100'03ff   0x2a  Code  Gb  main.o [1]
+Tog_Edge_Detect         0x1800'0080    0x2  Data  Lc  main.o [1]
+UART1_IRQHandler        0x1100'1147   0x26  Code  Gb  isr.o [1]
+USER_CFLASH_WR_PROT_EN  0x1100'125c    0x4  Data  Gb  bootrom.o [1]
+UsageFault_Handler      0x1100'1183    0x2  Code  Gb  isr.o [1]
+WDT1_Init               0x1100'0711   0x14  Code  Gb  wdt1.o [1]
+WDT1_Service            0x1100'074f   0x2a  Code  Gb  wdt1.o [1]
+WDT1_Window_Count       0x1100'1121    0xa  Code  Lc  isr.o [1]
+WD_Counter              0x1800'0074    0x4  Data  Gb  wdt1.o [1]
+__aeabi_f2iz            0x1100'0a01         Code  Gb  FltToS32.o [3]
+__aeabi_fdiv            0x1100'07ad         Code  Gb  FltDiv.o [3]
+__aeabi_fmul            0x1100'08a9         Code  Gb  FltMul.o [3]
+__aeabi_fsub            0x1100'0981         Code  Gb  FltSub.o [3]
+__aeabi_ui2f            0x1100'0791         Code  Gb  U32ToFlt.o [3]
+__cmain                 0x1100'11f9         Code  Gb  cmain.o [4]
+__exit                  0x1100'122d   0x14  Code  Gb  exit.o [5]
+__iar_data_init3        0x1100'11c1   0x28  Code  Gb  data_init.o [4]
+__iar_fadd              0x1100'098d         Code  Gb  FltSub.o [3]
+__iar_fsub              0x1100'1049         Code  Gb  FltAdd.o [3]
+__iar_fsubStart         0x1100'1059         Code  Gb  FltAdd.o [3]
+__iar_program_start     0x1100'1251         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3        0x1100'0a2b   0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init        0x1100'1217    0x4  Code  Gb  low_level_init.o [2]
+__vector_table          0x1100'0000         Data  Gb  startup_tle987x.o [1]
+_call_main              0x1100'1205         Code  Gb  cmain.o [4]
+_exit                   0x1100'1221         Code  Gb  cexit.o [4]
+_main                   0x1100'1213         Code  Gb  cmain.o [4]
+bSOWactive              0x1800'0082    0x1  Data  Lc  wdt1.o [1]
+exit                    0x1100'121b    0x4  Code  Gb  exit.o [2]
+failure_flag_1          0x1800'0050    0x4  Data  Gb  main.o [1]
+failure_flag_2          0x1800'0058    0x4  Data  Gb  main.o [1]
+failure_flag_3          0x1800'0060    0x4  Data  Gb  main.o [1]
+failure_flag_4          0x1800'0068    0x4  Data  Gb  main.o [1]
+failure_flag_5          0x1800'0070    0x4  Data  Gb  main.o [1]
+main                    0x1100'01b7   0xe2  Code  Gb  main.o [1]
+p_NACNAD                0x1101'effc    0x4  Data  Gb  system_tle987x.o [1]
+temporal_1              0x1800'002c    0x4  Data  Lc  main.o [1]
+timer_high_count        0x1800'007a    0x2  Data  Gb  main.o [1]
+timer_low_count         0x1800'0078    0x2  Data  Gb  main.o [1]
+u1_Field_Rd8            0x1100'0a7f   0x10  Code  Lc  scu.o [1]
+u8_Field_Rd8            0x1100'00a7    0xe  Code  Lc  main.o [1]
+
+
+[1] = C:\Users\navaan10\Desktop\TI_BOOST_IAR\TI_ETAT_PWM\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tl.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  4'758 bytes of readonly  code memory
+     20 bytes of readonly  data memory (+ 4 absolute)
+    872 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+  <packages/>
+  <device Dclock="40000000" Dcore="Cortex-M3" DcoreVersion="r0p0" Dendian="Little-endian" Dfamily="TLE98xx Series" Dfpu="NO_FPU" Dmpu="NO_MPU" Dname="TLE9879QXA40" DsubFamily="TLE987x Series" Dvendor="Infineon:7" info="ARM , 5 KB RAM, 128 KB ROM" url="http://www.keil.com/dd2/infineon/tle9879qxa40">
+    <package info="Infineon TLE987x Series Device Support" name="TLE987x_DFP" url="https://itools.infineon.com/cmsis_packs/TLE987x/" vendor="Infineon" version="1.6.0"/>
+  </device>
+  <toolchain Tcompiler="IAR" Toutput="exe"/>
+  <components/>
+  <apis/>
+</configuration>
